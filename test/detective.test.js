@@ -14,4 +14,24 @@ describe( 'Detective', function() {
             assert.equal( 3, detective.providesTheory().length );
         });
     });
+
+    describe( 'processWitnessAnswer()', function() {
+        var suspectsLength = detective.crimeEvidences.suspects.length;
+        it( 'should return less one suspect from evidences', function() {
+            detective.processWitnessAnswer( 1 );
+            assert.equal( suspectsLength - 1, detective.crimeEvidences.suspects.length );
+        });
+
+        var localsLength = detective.crimeEvidences.locals.length;
+        it( 'should return less one local from evidences', function() {
+            detective.processWitnessAnswer( 2 );
+            assert.equal( localsLength - 1, detective.crimeEvidences.locals.length );
+        });
+
+        var gunsLength = detective.crimeEvidences.guns.length;
+        it( 'should return less one gun from evidences', function() {
+            detective.processWitnessAnswer( 3 );
+            assert.equal( gunsLength - 1, detective.crimeEvidences.guns.length );
+        });
+    });
 });
