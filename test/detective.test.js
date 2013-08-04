@@ -13,6 +13,10 @@ describe( 'Detective', function() {
         it( 'should return a 3 lenght array', function() {
             assert.equal( 3, detective.providesTheory().length );
         });
+
+        it( 'theoryEvidences property should return a 3 lenght array', function() {
+            assert.equal( 3, detective.theoryEvidences.length );
+        });
     });
 
     describe( 'processWitnessAnswer()', function() {
