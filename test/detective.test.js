@@ -37,5 +37,14 @@ describe( 'Detective', function() {
             detective.processWitnessAnswer( 3 );
             assert.equal( gunsLength - 1, detective.crimeEvidences.guns.length );
         });
+
+        it( 'should evidences not contains the the previous provided theory values', function() {
+            assert.equal( -1, detective.crimeEvidences.suspects.indexOf(
+                detective.theoryEvidences[ 0 ] ) );
+            assert.equal( -1, detective.crimeEvidences.locals.indexOf(
+                detective.theoryEvidences[ 1 ] ) );
+            assert.equal( -1, detective.crimeEvidences.guns.indexOf(
+                detective.theoryEvidences[ 2 ] ) );
+        });
     });
 });

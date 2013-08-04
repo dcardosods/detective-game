@@ -17,13 +17,16 @@ Detective.prototype.providesTheory = function() {
 
 Detective.prototype.processWitnessAnswer = function( answer ) {
     if ( answer === 1 ) {
-        this.crimeEvidences.suspects.splice( 0, 1 );
+        this.crimeEvidences.suspects.splice(
+            this.crimeEvidences.suspects.indexOf( this.theoryEvidences[ 0 ] ), 1 );
     }
     else if ( answer === 2 ) {
-        this.crimeEvidences.locals.splice( 0, 1 );
+        this.crimeEvidences.locals.splice(
+            this.crimeEvidences.locals.indexOf( this.theoryEvidences[ 1 ] ), 1 );
     }
     else if ( answer === 3 ) {
-        this.crimeEvidences.guns.splice( 0, 1 );
+        this.crimeEvidences.guns.splice(
+            this.crimeEvidences.guns.indexOf( this.theoryEvidences[ 2 ] ), 1 );
     }
 };
 
