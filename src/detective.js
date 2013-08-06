@@ -12,7 +12,7 @@ Detective.prototype.providesTheory = function() {
         this.crimeEvidences.locals[ localIndex ],
         this.crimeEvidences.guns[ gunIndex ] ];
 
-    return [ suspectIndex, localIndex, gunIndex ];
+    return [ suspectIndex + 1, localIndex + 1, gunIndex + 1 ];
 };
 
 Detective.prototype.processWitnessAnswer = function( answer ) {
