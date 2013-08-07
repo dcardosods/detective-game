@@ -1,6 +1,11 @@
 function Detective( crime ) {
     this.crimeEvidences = crime.evidences;
     this.theoryEvidences = [];
+    this.checkedEvidences = {
+        suspects: [],
+        locals: [],
+        guns: []
+    };
 };
 
 Detective.prototype.providesTheory = function() {
@@ -17,16 +22,13 @@ Detective.prototype.providesTheory = function() {
 
 Detective.prototype.processWitnessAnswer = function( answer ) {
     if ( answer === 1 ) {
-        this.crimeEvidences.suspects.splice(
-            this.crimeEvidences.suspects.indexOf( this.theoryEvidences[ 0 ] ), 1 );
+        this.checkedEvidences.suspects.push( this.theoryEvidences[ 0 ] );
     }
     else if ( answer === 2 ) {
-        this.crimeEvidences.locals.splice(
-            this.crimeEvidences.locals.indexOf( this.theoryEvidences[ 1 ] ), 1 );
+        this.checkedEvidences.locals.push( this.theoryEvidences[ 1 ] );
     }
     else if ( answer === 3 ) {
-        this.crimeEvidences.guns.splice(
-            this.crimeEvidences.guns.indexOf( this.theoryEvidences[ 2 ] ), 1 );
+        this.checkedEvidences.guns.push( this.theoryEvidences[ 2 ] );
     }
 };
 

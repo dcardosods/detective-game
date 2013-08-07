@@ -22,30 +22,27 @@ describe( 'Detective', function() {
     });
 
     describe( 'processWitnessAnswer()', function() {
-        var suspectsLength = detective.crimeEvidences.suspects.length;
         it( 'should return less one suspect from evidences', function() {
             detective.processWitnessAnswer( 1 );
-            assert.equal( suspectsLength - 1, detective.crimeEvidences.suspects.length );
+            assert.equal( 1, detective.checkedEvidences.suspects.length );
         });
 
-        var localsLength = detective.crimeEvidences.locals.length;
         it( 'should return less one local from evidences', function() {
             detective.processWitnessAnswer( 2 );
-            assert.equal( localsLength - 1, detective.crimeEvidences.locals.length );
+            assert.equal( 1, detective.checkedEvidences.locals.length );
         });
 
-        var gunsLength = detective.crimeEvidences.guns.length;
         it( 'should return less one gun from evidences', function() {
             detective.processWitnessAnswer( 3 );
-            assert.equal( gunsLength - 1, detective.crimeEvidences.guns.length );
+            assert.equal( 1, detective.checkedEvidences.guns.length );
         });
 
-        it( 'should evidences not contains the the previous provided theory values', function() {
-            assert.equal( -1, detective.crimeEvidences.suspects.indexOf(
+        it( 'should checked evidences contains the previous provided theory values', function() {
+            assert.notEqual( -1, detective.checkedEvidences.suspects.indexOf(
                 detective.theoryEvidences[ 0 ] ) );
-            assert.equal( -1, detective.crimeEvidences.locals.indexOf(
+            assert.notEqual( -1, detective.checkedEvidences.locals.indexOf(
                 detective.theoryEvidences[ 1 ] ) );
-            assert.equal( -1, detective.crimeEvidences.guns.indexOf(
+            assert.notEqual( -1, detective.checkedEvidences.guns.indexOf(
                 detective.theoryEvidences[ 2 ] ) );
         });
     });
