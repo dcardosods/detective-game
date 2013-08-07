@@ -10,8 +10,41 @@ describe( 'Detective', function() {
         JSON.parse( fs.readFileSync( __dirname + '/../data/response.json', 'utf8' ) )
     );
     var detective = new Detective( crime );
+    var detective1 = new Detective( crime );
+
+    detective1.checkedEvidences = {
+        suspects: [
+            "Charles B. Abbage",
+            "Donald Duck Knuth",
+            "Ada L. Ovelace",
+            "Alan T. Uring",
+            "Ivar J. Acobson"
+        ],
+        locals: [
+            "Redmond",
+            "Palo Alto",
+            "San Francisco",
+            "Tokio",
+            "Restaurante no Fim do Universo",
+            "São Paulo",
+            "Cupertino",
+            "Helsinki",
+            "Maida Vale"
+        ],
+        guns: [
+            "Peixeira",
+            "DynaTAC 8000X",
+            "Trezoitão",
+            "Trebuchet",
+            "Maça"
+        ]
+    };
 
     describe( 'providesTheory()', function() {
+        it( 'should return [6, 10, 6]', function() {
+            assert.deepEqual( [ 6, 10, 6 ], detective1.providesTheory() );
+        });
+
         it( 'should return a 3 lenght array', function() {
             assert.equal( 3, detective.providesTheory().length );
         });
