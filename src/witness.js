@@ -4,16 +4,23 @@ function Witness( crime ) {
 };
 
 Witness.prototype.analysesTheory = function( theory ) {
+    var possibleReturns = [];
     if ( theory[0] - 1 !== this.crimeEvidences.suspects.indexOf( this.crimeSolution.suspect ) ) {
-        return 1;
+        possibleReturns.push( 1 );
     }
     if ( theory[1] - 1 !== this.crimeEvidences.locals.indexOf( this.crimeSolution.local ) ) {
-        return 2;
+        possibleReturns.push( 2 );
     }
     if ( theory[2] - 1 !== this.crimeEvidences.guns.indexOf( this.crimeSolution.gun ) ) {
-        return 3;
+        possibleReturns.push( 3 );
     }
-    return 0;
+
+    if ( possibleReturns.length === 0 ) {
+        return 0;
+    }
+    else {
+        return possibleReturns[ Math.floor( Math.random() * possibleReturns.length ) ];
+    }
 };
 
 module.exports = Witness;
