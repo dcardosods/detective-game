@@ -44,6 +44,8 @@ Detective.prototype.processWitnessAnswer = function( answer ) {
     else if ( answer === 3 ) {
         this.checkedEvidences.guns.push( this.theoryEvidences[ 2 ] );
     }
+
+    return answer;
 };
 
 module.exports = Detective;
