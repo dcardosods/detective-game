@@ -1,6 +1,6 @@
-function Crime( evidences, solutions ) {
+function Crime( evidences, solution ) {
     this.evidences = evidences;
-    this.solution = solutions.responses[0];
+    this.solution = solution;
 }
 
 module.exports = Crime;

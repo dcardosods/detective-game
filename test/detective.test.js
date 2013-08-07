@@ -7,7 +7,7 @@ var Detective = require('../src/detective');
 describe( 'Detective', function() {
     var crime = new Crime(
         JSON.parse( fs.readFileSync( __dirname + '/../data/data.json', 'utf8' ) ),
-        JSON.parse( fs.readFileSync( __dirname + '/../data/response.json', 'utf8' ) )
+        JSON.parse( fs.readFileSync( __dirname + '/../data/response.json', 'utf8' ) ).responses[0]
     );
     var detective = new Detective( crime );
     var detective1 = new Detective( crime );
