@@ -18,11 +18,15 @@ Por exemplo, se o assassino for Donald Duck Knuth (veja o arquivo anexo) usando 
 - Teoria: 2, 3, 4
 > Retorno: 0 (todos corretos, você solucionou o caso)
 
-# Dependencies
+# Dependencias
 
 - Node.js, NPM
 - Mocha ```npm install -g mocha```
 
-# Run tests
+# Para rodar os testes
 
-Inside root project folder run ```mocha -R spec```
+Dentro da pasta raiz do projeto rode ```mocha -R spec```
+
+# Para rodar o programa
+
+Dentro da pasta raiz do projeto rode ```node src/index.js```
